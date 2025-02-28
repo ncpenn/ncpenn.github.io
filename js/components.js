@@ -1,8 +1,26 @@
 // components.js - Place this in a JavaScript file
 document.addEventListener("DOMContentLoaded", function () {
   // Load all components marked for inclusion
-  loadComponents();
+
+  loadComponents().then(() => {
+    spam();
+  });
 });
+
+function spam() {
+  const links = document.getElementsByClassName("email-link");
+  debugger;
+  const user = "ncpenn";
+  const domain = "gmail";
+  const tld = "com";
+
+  for (let i = 0; i < links.length; i++) {
+    links[i].addEventListener("click", function (e) {
+      e.preventDefault();
+      window.location.href = "mailto:" + user + "@" + domain + "." + tld;
+    });
+  }
+}
 
 async function loadComponents() {
   // Find all elements with data-component attribute
