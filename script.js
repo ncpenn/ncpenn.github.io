@@ -15,4 +15,10 @@
             child.classList.toggle('active');
         });
     });
+
+    // Set current year in footer(s)
+    const yearEl = document.getElementById('current-year');
+    if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+    }
 });
